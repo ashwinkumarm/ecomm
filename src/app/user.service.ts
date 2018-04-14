@@ -18,9 +18,12 @@ export class UserService {
     });
   }
 
+  get(uid: string): AngularFireObject<AppUser> {
+    return this.db.object('/users/' + uid);
+  }
+
   isAdmin() {
-    console.log(this.user.email);
-    if (this.user.email === "ashwinkumarmuruganandam@gmail.com") {
+    if (this.user.email === 'ashwinkumarmuruganandam@gmail.com') {
       return true;
     }
     return false;

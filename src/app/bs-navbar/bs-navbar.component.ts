@@ -1,4 +1,5 @@
 import {AuthService} from '../auth.service';
+import {AppUser} from '../models/app-user';
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 
@@ -9,7 +10,10 @@ import {AngularFireAuth} from 'angularfire2/auth';
 })
 export class BsNavbarComponent {
 
-  constructor(public auth: AuthService) {
+  appUser: AppUser;
+
+  constructor(private auth: AuthService) {
+    auth.appUser$.subscribe(appUser => this.appUser = appUser);
   }
 
   logout() {

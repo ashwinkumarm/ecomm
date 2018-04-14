@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class AppComponent {
 
   constructor(private auth: AuthService, router: Router, private userService: UserService) {
-    auth.userObservable.subscribe(user => {
+    auth.user$.subscribe(user => {
       if (user) {
         userService.save(user);
         let returnUrl = localStorage.getItem('returnUrl');
