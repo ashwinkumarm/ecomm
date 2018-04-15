@@ -75,13 +75,12 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
         path: 'order-sucess', component: OrderSucessComponent,
         canActivate: [AuthGuardService]
       },
-
       {
-        path: 'admin/products/:id', component: ProductFormComponent,
+        path: 'admin/products/new', component: ProductFormComponent,
         canActivate: [AuthGuardService, AdminAuthGuardService]
       },
       {
-        path: 'admin/products/new', component: ProductFormComponent,
+        path: 'admin/products/:id', component: ProductFormComponent,
         canActivate: [AuthGuardService, AdminAuthGuardService]
       },
       {
