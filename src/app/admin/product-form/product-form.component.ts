@@ -1,6 +1,6 @@
 import {CategoryService} from '../../category.service';
-import { Category } from '../../models/category';
-import { Product } from '../../models/product';
+import {Category} from '../../models/category';
+import {Product} from '../../models/product';
 import {ProductService} from '../../product.service';
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/take';
 export class ProductFormComponent implements OnInit {
 
   categories: Category[] = [];
-  products: Product;
+  products:any = {};
   id;
 
   constructor(categoryService: CategoryService, private productService: ProductService,

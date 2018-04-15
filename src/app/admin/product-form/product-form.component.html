@@ -32,8 +32,8 @@
 						[(ngModel)]="products && products.category" name="category"
 						id="category" class="form-control" required>
 						<option value=""></option>
-						<option *ngFor="let c of categories" [value]="c.key">
-							{{ c.name }}</option>
+						<option *ngFor="let c of categories" [value]="c.key">{{
+							c.name }}</option>
 					</select>
 					<div class="alert alert-danger"
 						*ngIf="category.touched && category.invalid">Category is
@@ -55,19 +55,9 @@
 			</div>
 		</form>
 	</div>
-	<div *ngIf="(products && products.title) || title.value" class="card"
-		style="width: 20em;">
-		<img class="card-img-top"
-			[src]="(products &&  products.imageUrl) || (imageUrl && imageUrl.value)"
-			*ngIf=" (products && products.imageUrl) || (imageUrl && imageUrl.value) ">
-		<div class="card-body">
-			<h5 class="card-title">{{products && products.title || title &&
-				title.value }}</h5>
-			<p class="card-text">{{((products && products.price) || (price &&
-				price.value)) | currency:'USD':true}}</p>
-		</div>
+	<div class="col-md-6">
+		<app-product-card [product]="products" [showActions] = "false" ></app-product-card>
 	</div>
-	<div class="col-md-6"></div>
 </div>
 
 

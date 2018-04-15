@@ -26,6 +26,8 @@ export class ProductsComponent {
 
       this.filteredProducts = (this.selectedCategory) ?
         this.products.filter(p => p.category === this.selectedCategory) : this.products;
+
+      console.log(this.filteredProducts);
     });
 
   }
