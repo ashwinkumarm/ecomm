@@ -15,10 +15,9 @@ export class ProductsComponent {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  category: Category[] = [];
   selectedCategory: string;
 
-  constructor(productService: ProductService, categoryService: CategoryService, route: ActivatedRoute) {
+  constructor(productService: ProductService, route: ActivatedRoute) {
     productService.getAll().switchMap(p => {
       this.products = p;
       return route.queryParamMap;
@@ -28,11 +27,6 @@ export class ProductsComponent {
       this.filteredProducts = (this.selectedCategory) ?
         this.products.filter(p => p.category === this.selectedCategory) : this.products;
     });
-
-
-    categoryService.getAll().subscribe(c => this.category = c);
-
-
 
   }
 
