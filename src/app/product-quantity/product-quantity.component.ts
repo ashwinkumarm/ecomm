@@ -4,29 +4,24 @@ import {ShoppingCartService} from '../shopping-cart.service';
 import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+  selector: 'app-product-quantity',
+  templateUrl: './product-quantity.component.html',
+  styleUrls: ['./product-quantity.component.css']
 })
-export class ProductCardComponent {
+export class ProductQuantityComponent {
 
   @Input('product') product: Product;
-  @Input('showActions') showActions = true;
   @Input('shopping-cart') shoppingCart: Cart;
 
   constructor(private cartService: ShoppingCartService) {
   }
 
-  //  getStyleHeight() {
-  //    if (this.showActions) return '15rem;'; else return '15rem;';
-  //  }
-  //
-  //  getStyleWidth() {
-  //    if (this.showActions) return '15rem;'; else return '15rem;';
-  //  }
-
   addToCart() {
     this.cartService.addToCart(this.product);
+  }
+
+  removeFromCart() {
+    this.cartService.removeFromCart(this.product);
   }
 
 }

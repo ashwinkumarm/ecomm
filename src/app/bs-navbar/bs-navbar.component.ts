@@ -4,7 +4,7 @@ import {Cart} from '../models/cart';
 import {ShoppingCartService} from '../shopping-cart.service';
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-bs-navbar',
