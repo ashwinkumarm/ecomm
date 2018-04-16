@@ -1,6 +1,7 @@
 import {CartItems} from './cartItems';
 
 export class Cart {
+  
   constructor(public items: CartItems) {
   }
 
@@ -12,4 +13,7 @@ export class Cart {
     return count;
   }
 
+  productIds() {
+    return Object.keys(this.items);
+  }
 }
