@@ -22,10 +22,4 @@ export class UserService {
     return this.db.object('/users/' + uid);
   }
 
-  isAdmin() {
-    if (this.user.email === 'ashwinkumarmuruganandam@gmail.com') {
-      return true;
-    }
-    return false;
-  }
 }

@@ -11,12 +11,11 @@ export class ProductService {
   }
 
   getAll() {
-    return this.db.list('/products/',
- ref => ref.orderByChild('title'))
- .snapshotChanges()
- .map(actions => {
+    return this.db.list('/products/')
+      .snapshotChanges()
+      .map(actions => {
         return actions.map(action => ({
-          key: action.key, 
+          key: action.key,
           title: action.payload.val().title,
           imageUrl: action.payload.val().imageUrl,
           price: action.payload.val().price,

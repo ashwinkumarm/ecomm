@@ -1,4 +1,6 @@
 import {CategoryService} from '../../category.service';
+import {Category} from '../../models/category';
+import {Product} from '../../models/product';
 import {ProductService} from '../../product.service';
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
@@ -12,13 +14,13 @@ import 'rxjs/add/operator/take';
 })
 export class ProductFormComponent implements OnInit {
 
-  categories$;
-  products: any = {};
+  categories: Category[] = [];
+  products:any = {};
   id;
 
   constructor(categoryService: CategoryService, private productService: ProductService,
     private router: Router, private routeParam: ActivatedRoute) {
-    this.categories$ = categoryService.getCategories();
+    categoryService.getAll().subscribe(c => this.categories = c);
 
     this.id = this.routeParam.snapshot.paramMap.get('id');
     if (this.id) {

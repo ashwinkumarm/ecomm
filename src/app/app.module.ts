@@ -28,6 +28,11 @@ import {UserService} from './user.service';
 import {ProductFormComponent} from './admin/product-form/product-form.component';
 import {CategoryService} from './category.service';
 import {ProductService} from './product.service';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+
 
 
 @NgModule({
@@ -43,7 +48,10 @@ import {ProductService} from './product.service';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +63,7 @@ import {ProductService} from './product.service';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+      {path: '', component: ProductsComponent},
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
@@ -72,13 +80,12 @@ import {ProductService} from './product.service';
         path: 'order-sucess', component: OrderSucessComponent,
         canActivate: [AuthGuardService]
       },
-
       {
-        path: 'admin/products/:id', component: ProductFormComponent,
+        path: 'admin/products/new', component: ProductFormComponent,
         canActivate: [AuthGuardService, AdminAuthGuardService]
       },
       {
-        path: 'admin/products/new', component: ProductFormComponent,
+        path: 'admin/products/:id', component: ProductFormComponent,
         canActivate: [AuthGuardService, AdminAuthGuardService]
       },
       {
@@ -91,7 +98,8 @@ import {ProductService} from './product.service';
       }
     ])
   ],
-  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService, CategoryService, ProductService],
+  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService,
+     CategoryService, ProductService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
