@@ -35,6 +35,7 @@ import {ShoppingCartService} from './shopping-cart.service';
 import {ProductQuantityComponent} from './product-quantity/product-quantity.component';
 import {RegisterComponent} from './register/register.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 
 
@@ -56,7 +57,8 @@ import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-c
     ProductCardComponent,
     ProductQuantityComponent,
     RegisterComponent,
-    ShoppingCartSummaryComponent
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,
