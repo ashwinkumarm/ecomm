@@ -32,6 +32,7 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -51,7 +52,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductFormComponent,
     ProductFilterComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,9 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
+      {
+        path: 'register', component: RegisterComponent
+      },
 
       {
         path: 'check-out', component: CheckOutComponent,

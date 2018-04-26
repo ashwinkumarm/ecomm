@@ -1,0 +1,43 @@
+
+<div class="row">
+<div class = "loginForm">
+	<div class="col">
+		<form #f="ngForm" (ngSubmit)="register(f)">
+			<div class="form-group">
+				<label for="username">Username</label> <input #username="ngModel"
+					type="text" class="form-control" [(ngModel)]="model.username"
+					name="username" id="username" required>
+				<div class="alert alert-danger"
+					*ngIf="username.touched && username.invalid">Username is
+					required</div>
+			</div>
+			<div class="form-group">
+				<label for="email">Email Address</label> <input #email="ngModel"
+					type="text email" class="form-control" [(ngModel)]="model.email"
+					name="email" id="email" required>
+				<div class="alert alert-danger"
+					*ngIf="email.touched && email.invalid">Email address is
+					required</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label> <input #password="ngModel"
+					type="passowrd" class="form-control" [(ngModel)]="model.password"
+					name="password" id="password" required>
+				<div class="alert alert-danger"
+					*ngIf="password.touched && password.invalid">Password is
+					required</div>
+			</div>
+			<div class="form-group">
+				<label for="confirmpassword">Confirm Password</label> <input
+					#confirmpassword="ngModel" type="passowrd" class="form-control"
+					[(ngModel)]="model.confirmpassword" name="confirmpassword"
+					id="confirmpassword" required>
+				<div class="alert alert-danger"
+					*ngIf="confirmpassword.touched && confirmpassword.invalid">Password
+					is required</div>
+			</div>
+			<button class="btn btn-primary">Register</button>
+		</form>
+	</div>
+	</div>
+</div>

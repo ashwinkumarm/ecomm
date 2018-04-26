@@ -39,22 +39,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
       .then(items => this.items = items);
   }
 
-  //  constructor(private productService: ProductService) {
-  //
-  //    this.subscription = this.productService.getAll()
-  //      .subscribe(products => {
-  //        products.forEach(value => {
-  //          this.products.push(
-  //            {
-  //              title: value.payload.val().title,
-  //              price: value.payload.val().price,
-  //              imageUrl: value.payload.val().imageUrl,
-  //              category: value.payload.val().category
-  //            });
-  //        });
-  //        this.filteredProducts = this.products;
-  //      });
-  //  }
   ngOnInit() {
   }
 

@@ -1,3 +1,20 @@
-<button (click) = "login()" 
-class = "btn btn-primary">Login Using Google
-</button>
+<div class="login-page">
+	<div class="form">
+		<!--<form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form> -->
+		<form class="login-form">
+			<input type="text" placeholder="username" name="username"
+				[(ngModel)]="model.username" #username="ngModel" /> <input
+				type="password" placeholder="password" name="password"
+				[(ngModel)]="model.password" #password="ngModel" />
+			<button class = "btn btn-secondary buttonPadding" (click)="login()">login</button>
+			<button class = "btn btn-secondary buttonPadding" (click)="googleLogin()">login using google</button>
+			 <p class="message">Not registered? <a href="/register">Create an account</a></p> 
+		</form>
+	</div>
+</div>

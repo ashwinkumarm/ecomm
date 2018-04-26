@@ -4,6 +4,9 @@
 	border-radius: 100%;
 	background-size: cover;
 }
+.buttonCheckout {
+	background: rgb(58, 38, 236);
+}
 
 .tablePadding {
 	float:none;

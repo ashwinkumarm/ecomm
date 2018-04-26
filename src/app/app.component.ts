@@ -9,15 +9,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  isValid: boolean = true;
   constructor(private auth: AuthService, router: Router, private userService: UserService) {
     auth.user$.subscribe(user => {
-      if (!user) {return; }
+      if (!user) {return;}
 
       userService.save(user);
       let returnUrl = localStorage.getItem('returnUrl');
 
-      if (!returnUrl) {return; }
+      if (!returnUrl) {return;}
 
       localStorage.removeItem('returnUrl');
       router.navigateByUrl(returnUrl);

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" routerLink="/">OShop</a>
+	<a class="navbar-brand" routerLink="/">Shoes-com</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarsExampleDefault"
 		aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -33,7 +33,7 @@
 						routerLink="/admin/orders">Manage Orders </a> <a
 						class="dropdown-item" *ngIf="appUser.isAdmin"
 						routerLink="/admin/products">Manage Products</a> <a
-						(click)="logout()" class="dropdown-item">Log Out</a>
+						(click)="logout()" class="dropdown-item" routerLink="/login">Log Out</a>
 				</div></li>
 		</ul>
 	</div>

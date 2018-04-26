@@ -16,13 +16,20 @@ export class AuthService {
     this.user$ = afAuth.authState;
   }
 
-  login() {
+  login(username, password) {
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
+    this.afAuth.auth.signInWithEmailAndPassword(username, password);
+  }
+  googleLogin() {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
-
+  register(user) {
+    this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+  }
   logout() {
     this.afAuth.auth.signOut();
   }
@@ -30,7 +37,7 @@ export class AuthService {
   get appUser$(): Observable<AppUser> {
     return this.user$
       .switchMap(user => {
-        if (user) {return this.userService.get(user.uid).valueChanges(); }
+        if (user) {return this.userService.get(user.uid).valueChanges();}
 
         return Observable.of(null);
       });
