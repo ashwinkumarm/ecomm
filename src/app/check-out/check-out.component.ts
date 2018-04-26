@@ -7,6 +7,7 @@ import {ShoppingCartService} from '../shopping-cart.service';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
@@ -23,7 +24,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
   userId: string;
 
   constructor(private shoppingCartService: ShoppingCartService,
-     private orderService: OrderService, private authService: AuthService) {}
+     private orderService: OrderService, private authService: AuthService,
+   private router: Router) {}
 
   async ngOnInit() {
     let cart$ = await this.shoppingCartService.getCart();
@@ -31,9 +33,10 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
   }
 
-  placeOrder() {
+  async placeOrder() {
     let order = new Order(this.userId, this.shipping, this.cart);
-    this.orderService.storeOrder(order);
+    let result = await this.orderService.placeOrder(order);
+    this.router.navigate(['/order-sucess', result.key]);
   }
 
   ngOnDestroy() {

@@ -34,6 +34,7 @@ import {ProductCardComponent} from './product-card/product-card.component';
 import {ShoppingCartService} from './shopping-cart.service';
 import {ProductQuantityComponent} from './product-quantity/product-quantity.component';
 import {RegisterComponent} from './register/register.component';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 
 
 
@@ -54,7 +55,8 @@ import {RegisterComponent} from './register/register.component';
     ProductFilterComponent,
     ProductCardComponent,
     ProductQuantityComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import {RegisterComponent} from './register/register.component';
         canActivate: [AuthGuardService]
       },
       {
-        path: 'order-sucess', component: OrderSucessComponent,
+        path: 'order-sucess/:id', component: OrderSucessComponent,
         canActivate: [AuthGuardService]
       },
       {

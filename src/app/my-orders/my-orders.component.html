@@ -12,7 +12,7 @@
 		<tr *ngFor="let item of cart.items ">
 			<td *ngIf="item ">{{item.title}}</td>
 			<td class="text-right" *ngIf="item ">{{item.quantity}}</td>
-			<td class="text-right">{{item.price | currency:'USD':true}}</td>
+			<td class="text-right">{{item.price | currency}}</td>
 		</tr>
 	</tbody>
 </table>
