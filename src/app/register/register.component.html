@@ -1,10 +1,13 @@
 
 <div class="row">
+
 <div class = "loginForm">
+<h3>Sign Up!</h3>
 	<div class="col">
+
 		<form #f="ngForm" (ngSubmit)="register(f)">
 			<div class="form-group">
-				<label for="username">Username</label> <input #username="ngModel"
+				<input #username="ngModel" placeholder="username" 
 					type="text" class="form-control" [(ngModel)]="model.username"
 					name="username" id="username" required>
 				<div class="alert alert-danger"
@@ -12,24 +15,27 @@
 					required</div>
 			</div>
 			<div class="form-group">
-				<label for="email">Email Address</label> <input #email="ngModel"
-					type="text email" class="form-control" [(ngModel)]="model.email"
+				<input #email="ngModel" placeholder="email address" 
+					type="email" class="form-control" [(ngModel)]="model.email" 
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
 					name="email" id="email" required>
 				<div class="alert alert-danger"
 					*ngIf="email.touched && email.invalid">Email address is
-					required</div>
+					invalid</div>			
+
+					
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label> <input #password="ngModel"
-					type="passowrd" class="form-control" [(ngModel)]="model.password"
+				<input #password="ngModel" placeholder="password" 
+					type="password" class="form-control" [(ngModel)]="model.password"
 					name="password" id="password" required>
 				<div class="alert alert-danger"
 					*ngIf="password.touched && password.invalid">Password is
 					required</div>
 			</div>
 			<div class="form-group">
-				<label for="confirmpassword">Confirm Password</label> <input
-					#confirmpassword="ngModel" type="passowrd" class="form-control"
+				 <input placeholder="confirm password" 
+					#confirmpassword="ngModel" type="password" class="form-control"
 					[(ngModel)]="model.confirmpassword" name="confirmpassword"
 					id="confirmpassword" required>
 				<div class="alert alert-danger"

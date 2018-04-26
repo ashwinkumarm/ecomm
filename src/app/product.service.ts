@@ -25,6 +25,21 @@ export class ProductService {
       });
   }
 
+  getFilter(search?: string) {
+  console.log(search);
+    return this.db.list('/products/', ref => ref.orderByChild("title").startAt(search)).snapshotChanges()
+    .map(actions => {
+        return actions.map(action => ({
+          key: action.key,
+          title: action.payload.val().title,
+          imageUrl: action.payload.val().imageUrl,
+          price: action.payload.val().price,
+          size: action.payload.val().size,
+          category: action.payload.val().categories
+        }));
+      });
+  }
+
   getProduct(productId) {
     return this.db.object('/products/' + productId).snapshotChanges();
   }

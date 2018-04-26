@@ -19,6 +19,7 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  filteredProductsfilter: Product[] = [];
   selectedCategory: string;
   cart$: Observable<Cart>;
 
@@ -49,4 +50,28 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+   
+/*
+  filter(query : string) {
+    const q = query.toLowerCase();
+    this.filteredProductsfilter = (query) ?
+      this.products.filter(p => p.title.toLowerCase().includes(q)) :
+      this.products;
+      
+  }*/
+
+ private populateFilterProducts(query: string) {
+
+    
+    this.productService.getFilter(query).switchMap(p => {
+      this.products = p;
+
+      return this.route.queryParamMap;
+    }).subscribe(params => {
+      this.selectedCategory = params.get('category');
+      this.applyFilter();
+    });
+  }
+
 }
+
