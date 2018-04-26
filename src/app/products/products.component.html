@@ -1,15 +1,13 @@
-<p class="searchProductsPadding">
-		<input #query (keyup)="populateFilterProducts(query.value)" type="text"
-			class="form-control" placeholder="Search for product">
-</p>
-
 
 <div class="row">
 	<div class="col-3">
+		<input #query (keyup)="populateFilterProducts(query.value)"
+			type="text" class="form-control" placeholder="Search for product">
+			<br>
 		<app-product-filter [selectedCategory]="selectedCategory"></app-product-filter>
-	</div>	
+	</div>
 	<div class="col-9">
-		<div class="row" *ngIf = "cart$ | async as cart" >
+		<div class="row" *ngIf="cart$ | async as cart">
 			<ng-container *ngFor="let p of filteredProducts; let i = index">
 			<div class="col-3">
 				<app-product-card [product]="p" [shopping-cart]="cart"></app-product-card>
