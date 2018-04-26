@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ShoppingCartService } from '../shopping-cart.service';
+import {AuthService} from '../auth.service';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ShoppingCartService} from '../shopping-cart.service';
 import {Cart} from '../models/cart';
+import {OrderService} from '../order.service';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -8,12 +11,10 @@ import {Cart} from '../models/cart';
   templateUrl: './my-orders.component.html',
   styleUrls: ['./my-orders.component.css']
 })
-export class MyOrdersComponent implements OnInit {
-  cart$;
-  constructor(private shoppingCartService: ShoppingCartService) { }
+export class MyOrdersComponent {
+  orders$;
 
-  async ngOnInit() {
-    this.cart$ = await this.shoppingCartService.getCart();
+  constructor(private orderService: OrderService, private authService: AuthService) {
+    this.orders$ = authService.user$.switchMap(u => orderService.getOrdersByUser(u.uid));
   }
-
 }
