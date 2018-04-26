@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Shipping} from '../models/shipping';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-check-out',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckOutComponent implements OnInit {
 
-  constructor() { }
+  shipping: Shipping = {name: '', addressLine1: '', addressLine2: '', city: ''};
+  constructor() {}
 
   ngOnInit() {
+  }
+
+  placeOrder() {
+    console.log(this.shipping);
   }
 
 }
