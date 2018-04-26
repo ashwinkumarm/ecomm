@@ -35,7 +35,7 @@
 
 	<div class="alert alert-danger" *ngIf="city.touched && city.invalid">City
 		is required</div>
-	<button class="btn btn-primary">Place Order</button>
+	<button (click) = "placeOrder()" class="btn btn-primary">Place Order</button>
 </form>
 </div>
 
