@@ -4,7 +4,11 @@
 	border-radius: 100%;
 	background-size: cover;
 }
+.buttonCheckout {
+	background: rgb(58, 38, 236);
+}
 
 .tablePadding {
 	float:none;
+	margin: 0 50ox 0 50px;
 }

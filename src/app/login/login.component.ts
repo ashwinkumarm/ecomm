@@ -1,5 +1,5 @@
-import { AuthService } from '../auth.service';
-import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  model: any = {};
   constructor(private auth: AuthService) {
-   }
+  }
 
   login() {
-    this.auth.login();
+    console.log(this.model.username, this.model.password);
+    this.auth.login(this.model.username, this.model.password);
   }
+  googleLogin() {
+    this.auth.googleLogin();
+  }
+
 }

@@ -19,7 +19,8 @@ export class ProductService {
           title: action.payload.val().title,
           imageUrl: action.payload.val().imageUrl,
           price: action.payload.val().price,
-          category: action.payload.val().category
+          size: action.payload.val().size,
+          category: action.payload.val().categories
         }));
       });
   }

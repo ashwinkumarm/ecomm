@@ -27,11 +27,16 @@ import {LoginComponent} from './login/login.component';
 import {UserService} from './user.service';
 import {ProductFormComponent} from './admin/product-form/product-form.component';
 import {CategoryService} from './category.service';
+import {OrderService} from './order.service';
 import {ProductService} from './product.service';
-import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { ShoppingCartService } from './shopping-cart.service';
-import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import {ProductFilterComponent} from './products/product-filter/product-filter.component';
+import {ProductCardComponent} from './product-card/product-card.component';
+import {ShoppingCartService} from './shopping-cart.service';
+import {ProductQuantityComponent} from './product-quantity/product-quantity.component';
+import {RegisterComponent} from './register/register.component';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { ProductSizeComponent } from './product-size/product-size.component';
 
 
 
@@ -51,7 +56,11 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductFormComponent,
     ProductFilterComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    RegisterComponent,
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent,
+    ProductSizeComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +76,9 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
+      {
+        path: 'register', component: RegisterComponent
+      },
 
       {
         path: 'check-out', component: CheckOutComponent,
@@ -77,7 +89,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
         canActivate: [AuthGuardService]
       },
       {
-        path: 'order-sucess', component: OrderSucessComponent,
+        path: 'order-sucess/:id', component: OrderSucessComponent,
         canActivate: [AuthGuardService]
       },
       {
@@ -98,8 +110,10 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
       }
     ])
   ],
-  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService,
-     CategoryService, ProductService, ShoppingCartService],
+  providers: [AuthService, AuthGuardService,
+    UserService, AdminAuthGuardService,
+    CategoryService, ProductService,
+    ShoppingCartService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

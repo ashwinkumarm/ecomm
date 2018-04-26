@@ -50,6 +50,21 @@
 						<div *ngIf="imageUrl.errors.url">Image Url should be valid</div>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="size">Size</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+						 <input #size="ngModel" [(ngModel)]="products &&  products.size"
+								name="size" id="size" type="text" class="form-control"
+								required [min]="5">
+						</div>
+					</div>
+					<div class="alert alert-danger"
+						*ngIf="size.touched && size.invalid">
+						<div *ngIf="size?.errors.required">Size is required</div>
+						<div *ngIf="size?.errors.min">Size should be greater than 5</div>
+					</div>
+				</div>
 				<button class="btn btn-primary">Save</button>
 				<button (click)="delete()" type="button" class="btn btn-primary">Delete</button>
 			</div>

@@ -1,3 +1,17 @@
-<p>
-  my-orders works!
-</p>
+<h1>Orders</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Date Purchased</th>
+      <th>Total Cost</th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <td *ngIf = "order && order.shipping">{{ order.shipping.name }}</td>
+      <td *ngIf = "order">{{ order.datePlaced | date}}</td>
+      <td *ngIf = "order">{{ order.totalCost | currency}}</td>
+    </tr>
+  </tbody> 
+</table>
