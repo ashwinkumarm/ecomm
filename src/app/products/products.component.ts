@@ -6,7 +6,7 @@ import {ProductService} from '../product.service';
 import {ShoppingCartService} from '../shopping-cart.service';
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/operator/switchMap';
 
@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  filteredProductsfilter: Product[] = [];
   selectedCategory: string;
   cart$: Observable<Cart>;
 
@@ -50,25 +49,10 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-
-  /*
-    filter(query : string) {
-      const q = query.toLowerCase();
-      this.filteredProductsfilter = (query) ?
-        this.products.filter(p => p.title.toLowerCase().includes(q)) :
-        this.products;
-    }*/
-
   private populateFilterProducts(query: string) {
-    this.productService.getFilter(query).switchMap(p => {
-      this.products = p;
+    this.filteredProducts = (query) ?
+      this.products.filter(p => p.title.toLocaleLowerCase().startsWith(query.toLocaleLowerCase())) : this.products;
 
-      return this.route.queryParamMap;
-    }).subscribe(params => {
-      this.selectedCategory = params.get('category');
-      this.applyFilter();
-    });
   }
-
 }
 

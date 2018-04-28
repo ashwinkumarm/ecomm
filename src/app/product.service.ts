@@ -19,14 +19,13 @@ export class ProductService {
           title: action.payload.val().title,
           imageUrl: action.payload.val().imageUrl,
           price: action.payload.val().price,
-          size: action.payload.val().size,
-          category: action.payload.val().categories
+          category: action.payload.val().category
         }));
       });
   }
 
   getFilter(search?: string) {
-  console.log(search);
+    console.log(search);
     return this.db.list('/products/', ref => ref.orderByChild("title").startAt(search)).snapshotChanges()
     .map(actions => {
         return actions.map(action => ({
@@ -34,8 +33,7 @@ export class ProductService {
           title: action.payload.val().title,
           imageUrl: action.payload.val().imageUrl,
           price: action.payload.val().price,
-          size: action.payload.val().size,
-          category: action.payload.val().categories
+          category: action.payload.val().category
         }));
       });
   }

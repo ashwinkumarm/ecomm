@@ -36,7 +36,6 @@ import {ProductQuantityComponent} from './product-quantity/product-quantity.comp
 import {RegisterComponent} from './register/register.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
-import { ProductSizeComponent } from './product-size/product-size.component';
 
 
 
@@ -59,8 +58,7 @@ import { ProductSizeComponent } from './product-size/product-size.component';
     ProductQuantityComponent,
     RegisterComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent,
-    ProductSizeComponent
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,
