@@ -49,7 +49,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  private populateFilterProducts(query: string) {
+  public populateFilterProducts(query: string) {
     this.filteredProducts = (query) ?
       this.products.filter(p => p.title.toLocaleLowerCase().startsWith(query.toLocaleLowerCase())) : this.products;
 
